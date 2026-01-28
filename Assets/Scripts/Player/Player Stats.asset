@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player Stats
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovementStats
   MoveThreshold: 0.5
-  maxWalkSpeed: 20
+  maxWalkSpeed: 10
   runSpeed: 30
   groundAcceleration: 10
   groundDeceleration: 20
@@ -22,10 +22,10 @@ MonoBehaviour:
   wallJumpMoveAcceleration: 5
   wallJumpMoveDeceleration: 5
   dashDuration: 0.11
-  DashSpeed: 75
+  DashSpeed: 50
   timeBetweenDashesOnGround: 0.225
   resetDashOnWallSlide: 1
-  numberOfDashes: 2
+  numberOfDashes: 0
   dashDiagonallyBias: 0.4
   dashGravityOnReleaseMultiplier: 1
   dashTimeForUpwardsCancel: 0.027
@@ -42,14 +42,14 @@ MonoBehaviour:
   timeToJumpApex: 0.35
   gravityOnReleaseMultiplier: 2
   maxFallSpeed: 26
-  maxJumpNumber: 2
+  maxJumpNumber: 1
   resetJumpsOnWallSlide: 1
   timeForUpwardsCancel: 0.027
   apexThreshold: 0.97
   apexHangTime: 0.075
   jumpBufferTime: 0.125
   coyoteTime: 0.1
-  wallSlideSpeed: 10
+  wallSlideSpeed: 26
   wallSlideDeceleration: 50
   wallJumpDirection: {x: -20, y: 6.5}
   wallJumpPostBufferTime: 0.125

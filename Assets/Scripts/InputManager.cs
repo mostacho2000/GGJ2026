@@ -14,11 +14,17 @@ public class InputManager : MonoBehaviour
     public static bool jumpReleased;
     public static bool dashPressed;
     public static bool runHeld;
+    public static bool maskSwitchPressed;
+    public static bool maskActionPressed;
+    public static bool maskActionReleased;
 
     private InputAction moveAction;
     private InputAction jumpAction;
     private InputAction dashAction;
     private InputAction runAction;
+    private InputAction switchMask;
+    private InputAction maskAction;
+
 
     private void Awake()
     {
@@ -28,6 +34,8 @@ public class InputManager : MonoBehaviour
         jumpAction = playerInput.actions["Jump"];
         dashAction = playerInput.actions["Dash"];
         runAction = playerInput.actions["Run"];
+        switchMask = playerInput.actions["SwitchMask"];
+        maskAction = playerInput.actions["MaskAction"];
     }
 
     // Update is called once per frame
@@ -42,5 +50,9 @@ public class InputManager : MonoBehaviour
         dashPressed = dashAction.WasPressedThisFrame();
 
         runHeld = runAction.IsPressed();
+
+        maskSwitchPressed = switchMask.WasPressedThisFrame();
+        maskActionPressed = maskAction.WasPressedThisFrame();
+        maskActionReleased = maskAction.WasReleasedThisFrame();
     }
 }

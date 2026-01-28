@@ -1,6 +1,4 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -30,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isFalling;
     private float fastFallTime;
     private float fastFallReleaseSpeed;
-    private int numberOfJumps;
+    public int numberOfJumps;
 
     private float apexPoint;
     private float timePastApexThreshold;
@@ -164,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
         isPastApexThreshold = false;
     }
 
-    private void JumpChecks()
+    public void JumpChecks()
     {
         if (InputManager.jumpPressed)
         {
@@ -481,7 +479,7 @@ public class PlayerMovement : MonoBehaviour
         numberOfDashesUsed = 0;
     }
 
-    private void DashCheck()
+    public void DashCheck()
     {
         if (InputManager.dashPressed)
         {

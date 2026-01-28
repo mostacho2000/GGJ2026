@@ -410,6 +410,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.16291213}
   m_EdgeRadius: 0
+--- !u!1 &415497565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 415497566}
+  m_Layer: 0
+  m_Name: MaskLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &415497566
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415497565}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.67, y: 0.29, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1043613387}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &558942455
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,6 +485,7 @@ GameObject:
   - component: {fileID: 1043613387}
   - component: {fileID: 1043613386}
   - component: {fileID: 1043613385}
+  - component: {fileID: 1043613388}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -503,6 +535,7 @@ MonoBehaviour:
   movementStats: {fileID: 11400000, guid: 9371511db43f0c043ad58891bd5a4c73, type: 2}
   bodyCollider: {fileID: 1642849000}
   feetCollider: {fileID: 339326899}
+  numberOfJumps: 0
   isWallJumping: 0
 --- !u!4 &1043613387
 Transform:
@@ -519,8 +552,27 @@ Transform:
   m_Children:
   - {fileID: 1419656838}
   - {fileID: 558942456}
+  - {fileID: 415497566}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1043613388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043613384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f81155c4c0eb8e48a46b9c3bc9104a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMaskInteraction
+  masks:
+  - {fileID: 21273437784651316, guid: 3c70d0b5f19d0e444b76d563a15792fa, type: 3}
+  - {fileID: 978087251865901739, guid: 8bb8ecb8cc8d9f844953515dd63fddaa, type: 3}
+  - {fileID: 4745430115729157565, guid: 9f9cd3c5e7fa6b44eb9cb1f144b298b0, type: 3}
+  - {fileID: 3395756513234128169, guid: 24b8eca232a9dc1499bdce7bdb33737b, type: 3}
+  maskHoldPoint: {fileID: 415497566}
 --- !u!1 &1168667067
 GameObject:
   m_ObjectHideFlags: 0

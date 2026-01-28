@@ -41,6 +41,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchMask",
+                    "type": "Button",
+                    "id": "e0241a42-4c9b-421b-aaa0-aa4a4c0c6154",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MaskAction",
+                    "type": "Button",
+                    "id": "17ad61b1-5bf5-4bde-b603-84e3d0b8c849",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -184,6 +202,28 @@
                     "processors": "",
                     "groups": ";Keyboard",
                     "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bc7c924f-8fe2-465c-9f92-87cebae0e326",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "SwitchMask",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7917b46c-8f0a-4424-9b3c-814af4f3184d",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "MaskAction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
