@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections; // Necesario para las Corrutinas
+using System.Collections;
+using UnityEngine.InputSystem; // Necesario para el nuevo sistema
 
 public class PauseManager : MonoBehaviour
 {
@@ -9,79 +10,102 @@ public class PauseManager : MonoBehaviour
     public GameObject panelGameOver;
 
     [Header("Audio")]
-    public AudioSource sourceAudio; // El componente que emite el sonido
-    public AudioClip musicaGameOver; // El archivo de audio de 6 segundos
+    public AudioSource sourceAudio;
+    public AudioClip musicaGameOver;
 
     [Header("Configuración")]
-    public string nombreEscenaMenu = "MenuPrincipal"; // Pon aquí el nombre exacto de tu escena de menú
+    public string nombreEscenaMenu = "MenuPrincipal";
     private bool estaPausado = false;
 
     void Start()
     {
-        // Asegurarnos que los paneles esten apagados al iniciar el nivel
-        panelPausa.SetActive(false);
-        panelGameOver.SetActive(false);
+        // Debug inicial para saber si el script arrancó
+        Debug.Log("PauseManager iniciado correctamente.");
+
+        if (panelPausa != null) panelPausa.SetActive(false);
+        if (panelGameOver != null) panelGameOver.SetActive(false);
     }
 
     void Update()
     {
-        // Detectar la tecla Escape
-        if (Input.GetKeyDown(KeyCode.Escape))
+        // 1. Verificamos si Unity detecta un teclado siquiera
+        if (Keyboard.current == null)
         {
+            // Si esto sale en consola, Unity no reconoce tu teclado
+            return; 
+        }
+
+        // 2. Verificamos si se presionó la tecla
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            // ESTE ES EL MENSAJE QUE PEDISTE
+            Debug.Log(">> ¡TECLA ESCAPE PRESIONADA! <<"); 
+
             if (estaPausado)
             {
+                Debug.Log("Estado actual: Pausado. Ejecutando ContinuarJuego()...");
                 ContinuarJuego();
             }
             else
             {
+                Debug.Log("Estado actual: Jugando. Ejecutando PausarJuego()...");
                 PausarJuego();
             }
         }
     }
 
-    // --- FUNCIONES DEL MENÚ DE PAUSA ---
-
     public void PausarJuego()
     {
         estaPausado = true;
-        panelPausa.SetActive(true);
-        Time.timeScale = 0f; // ESTO CONGELA EL TIEMPO
+        if (panelPausa != null) 
+        {
+            panelPausa.SetActive(true);
+            Debug.Log("Panel de Pausa activado.");
+        }
+        else
+        {
+            Debug.LogError("ERROR: No has asignado el 'Panel Pausa' en el Inspector.");
+        }
+        Time.timeScale = 0f;
     }
 
     public void ContinuarJuego()
     {
         estaPausado = false;
-        panelPausa.SetActive(false);
-        Time.timeScale = 1f; // ESTO DESCONGELA EL TIEMPO
+        if (panelPausa != null) panelPausa.SetActive(false);
+        Time.timeScale = 1f;
+        Debug.Log("Juego reanudado.");
     }
 
-    // Esta función la conectas al botón "Menu" del panel de pausa
     public void IrAlMenuConEfecto()
     {
+        Debug.Log("Iniciando secuencia de salida...");
         StartCoroutine(SecuenciaSalida());
     }
 
-    // --- LA SECUENCIA CHINGONA (Corrutina) ---
     IEnumerator SecuenciaSalida()
     {
-        // 1. Ocultamos el menú de pausa y mostramos el de Game Over
-        panelPausa.SetActive(false);
-        panelGameOver.SetActive(true);
+        if (panelPausa != null) panelPausa.SetActive(false);
+        if (panelGameOver != null) 
+        {
+            panelGameOver.SetActive(true);
+            Debug.Log("Panel Game Over mostrado.");
+        }
+        else
+        {
+            Debug.LogError("ERROR: No has asignado el 'Panel Game Over' en el Inspector.");
+        }
 
-        // 2. Reproducimos la canción
         if (sourceAudio != null && musicaGameOver != null)
         {
             sourceAudio.PlayOneShot(musicaGameOver);
+            Debug.Log("Reproduciendo música...");
         }
 
-        // 3. Esperamos 6 segundos REALES (ignorando que el juego está en pausa)
         yield return new WaitForSecondsRealtime(6f);
 
-        // 4. Importante: Devolver el tiempo a la normalidad antes de cambiar de escena
-        // Si no haces esto, el menú principal o el siguiente juego iniciarán congelados.
         Time.timeScale = 1f;
-
-        // 5. Cargar el menú
+        Debug.Log("Cargando escena de menú: " + nombreEscenaMenu);
         SceneManager.LoadScene(nombreEscenaMenu);
     }
 }
