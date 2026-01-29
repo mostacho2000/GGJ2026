@@ -22,10 +22,10 @@ MonoBehaviour:
   wallJumpMoveAcceleration: 5
   wallJumpMoveDeceleration: 5
   dashDuration: 0.11
-  DashSpeed: 50
+  DashSpeed: 25
   timeBetweenDashesOnGround: 0.225
   resetDashOnWallSlide: 1
-  numberOfDashes: 0
+  numberOfDashes: 1
   dashDiagonallyBias: 0.4
   dashGravityOnReleaseMultiplier: 1
   dashTimeForUpwardsCancel: 0.027
@@ -37,7 +37,7 @@ MonoBehaviour:
   headWidth: 0.75
   wallCheckDistance: 0.125
   wallCheckDistanceHeightMultiplier: 0.9
-  jumpHeight: 6.5
+  jumpHeight: 3
   jumpHeightCompensation: 1.054
   timeToJumpApex: 0.35
   gravityOnReleaseMultiplier: 2
@@ -51,7 +51,7 @@ MonoBehaviour:
   coyoteTime: 0.1
   wallSlideSpeed: 26
   wallSlideDeceleration: 50
-  wallJumpDirection: {x: -20, y: 6.5}
+  wallJumpDirection: {x: -20, y: 3}
   wallJumpPostBufferTime: 0.125
   wallJumpGravityOnReleaseMultiplier: 1
   debugShowIsGroundedRays: 0
