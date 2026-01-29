@@ -5,28 +5,44 @@ public class RespawnManager : MonoBehaviour
 {
     public static RespawnManager I;
 
-    [SerializeField] private Transform currentCheckpoint;
-    [SerializeField] private float respawnDelay = 0.25f;
+    [Header("Setup")]
+    public Transform startSpawnPoint;
+    public float respawnDelay = 0.2f;
+
+    private Transform currentCheckpoint;
 
     private void Awake()
     {
         if (I != null) { Destroy(gameObject); return; }
         I = this;
+        currentCheckpoint = startSpawnPoint;
     }
 
-    public void SetCheckpoint(Transform t) => currentCheckpoint = t;
+    public void SetCheckpoint(Transform t)
+    {
+        currentCheckpoint = t;
+        Debug.Log("Checkpoint set: " + t.name);
+    }
 
-    public void Respawn(GameObject player) => StartCoroutine(RespawnRoutine(player));
+    public void Respawn(GameObject playerRoot)
+    {
+        StartCoroutine(RespawnRoutine(playerRoot));
+    }
 
-    private IEnumerator RespawnRoutine(GameObject player)
+    private IEnumerator RespawnRoutine(GameObject playerRoot)
     {
         yield return new WaitForSeconds(respawnDelay);
 
-        var rb = player.GetComponent<Rigidbody2D>();
+        var rb = playerRoot.GetComponent<Rigidbody2D>();
         if (rb != null) rb.simulated = false;
 
-        player.transform.position = currentCheckpoint.position;
+        // Teleport
+        if (currentCheckpoint != null)
+            playerRoot.transform.position = currentCheckpoint.position;
+        else if (startSpawnPoint != null)
+            playerRoot.transform.position = startSpawnPoint.position;
 
+        // Reset velocity
         if (rb != null)
         {
             rb.linearVelocity = Vector2.zero;
@@ -34,8 +50,10 @@ public class RespawnManager : MonoBehaviour
             rb.simulated = true;
         }
 
-        // Si agregas vida/estado, aquí lo reseteas
-        var hp = player.GetComponent<PlayerHealth>();
+        // Reset HP (si existe)
+        var hp = playerRoot.GetComponent<PlayerHealth>();
         if (hp != null) hp.ResetAfterRespawn();
+
+        Debug.Log("Respawned!");
     }
 }

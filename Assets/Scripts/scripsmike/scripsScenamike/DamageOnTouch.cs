@@ -2,16 +2,20 @@ using UnityEngine;
 
 public class DamageOnTouch : MonoBehaviour
 {
-    [SerializeField] private int damage = 1;
-    [SerializeField] private bool destroyOnHit = false;
+    public int damage = 1;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
+        Transform root = other.transform.root;
 
-        var hp = other.GetComponent<PlayerHealth>();
-        if (hp != null) hp.TakeDamage(damage);
+        if (!root.CompareTag("Player")) return;
 
-        if (destroyOnHit) Destroy(gameObject);
+        Debug.Log("TRAMPA DAÑO AL PLAYER: " + gameObject.name);
+
+        var hp = root.GetComponent<PlayerHealth>();
+        if (hp != null)
+            hp.TakeDamage(damage);
+        else
+            Debug.LogError("PlayerHealth NO encontrado en Player");
     }
 }
