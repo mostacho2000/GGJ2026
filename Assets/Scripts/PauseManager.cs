@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
-using UnityEngine.InputSystem; // Necesario para el nuevo sistema
+using UnityEngine.InputSystem; 
 
 public class PauseManager : MonoBehaviour
 {
@@ -10,102 +10,80 @@ public class PauseManager : MonoBehaviour
     public GameObject panelGameOver;
 
     [Header("Audio")]
-    public AudioSource sourceAudio;
-    public AudioClip musicaGameOver;
+    public AudioSource sourceEfectos; 
+    public AudioClip clipGameOver;    
+    
+    // Ya no es pública para arrastrar, la buscamos por código
+    private AudioSource musicaDeFondo; 
 
     [Header("Configuración")]
-    public string nombreEscenaMenu = "MenuPrincipal";
+    public string nombreEscenaMenu = "MenuPrincipal"; 
     private bool estaPausado = false;
 
     void Start()
     {
-        // Debug inicial para saber si el script arrancó
-        Debug.Log("PauseManager iniciado correctamente.");
-
         if (panelPausa != null) panelPausa.SetActive(false);
         if (panelGameOver != null) panelGameOver.SetActive(false);
+
+        // --- CAMBIO IMPORTANTE ---
+        // Buscamos el objeto que tenga el script MusicaContinua y cogemos su audio
+        MusicaContinua objetoMusica = FindAnyObjectByType<MusicaContinua>();
+        if (objetoMusica != null)
+        {
+            musicaDeFondo = objetoMusica.GetComponent<AudioSource>();
+        }
     }
 
     void Update()
     {
-        // 1. Verificamos si Unity detecta un teclado siquiera
-        if (Keyboard.current == null)
+        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
         {
-            // Si esto sale en consola, Unity no reconoce tu teclado
-            return; 
-        }
-
-        // 2. Verificamos si se presionó la tecla
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
-        {
-            // ESTE ES EL MENSAJE QUE PEDISTE
-            Debug.Log(">> ¡TECLA ESCAPE PRESIONADA! <<"); 
-
-            if (estaPausado)
-            {
-                Debug.Log("Estado actual: Pausado. Ejecutando ContinuarJuego()...");
-                ContinuarJuego();
-            }
-            else
-            {
-                Debug.Log("Estado actual: Jugando. Ejecutando PausarJuego()...");
-                PausarJuego();
-            }
+            if (estaPausado) ContinuarJuego();
+            else PausarJuego();
         }
     }
 
     public void PausarJuego()
     {
         estaPausado = true;
-        if (panelPausa != null) 
-        {
-            panelPausa.SetActive(true);
-            Debug.Log("Panel de Pausa activado.");
-        }
-        else
-        {
-            Debug.LogError("ERROR: No has asignado el 'Panel Pausa' en el Inspector.");
-        }
-        Time.timeScale = 0f;
+        if (panelPausa != null) panelPausa.SetActive(true);
+        Time.timeScale = 0f; 
     }
 
     public void ContinuarJuego()
     {
         estaPausado = false;
         if (panelPausa != null) panelPausa.SetActive(false);
-        Time.timeScale = 1f;
-        Debug.Log("Juego reanudado.");
+        Time.timeScale = 1f; 
     }
 
     public void IrAlMenuConEfecto()
     {
-        Debug.Log("Iniciando secuencia de salida...");
         StartCoroutine(SecuenciaSalida());
     }
 
     IEnumerator SecuenciaSalida()
     {
         if (panelPausa != null) panelPausa.SetActive(false);
-        if (panelGameOver != null) 
+        if (panelGameOver != null) panelGameOver.SetActive(true);
+
+        // 1. Matamos la música para siempre
+        // Usamos Destroy en lugar de Stop para que, al llegar al menú, 
+        // el objeto desaparezca y no choque con la música del menú.
+        if (musicaDeFondo != null)
         {
-            panelGameOver.SetActive(true);
-            Debug.Log("Panel Game Over mostrado.");
-        }
-        else
-        {
-            Debug.LogError("ERROR: No has asignado el 'Panel Game Over' en el Inspector.");
+            Destroy(musicaDeFondo.gameObject); 
         }
 
-        if (sourceAudio != null && musicaGameOver != null)
+        // 2. Sonido de derrota
+        if (sourceEfectos != null && clipGameOver != null)
         {
-            sourceAudio.PlayOneShot(musicaGameOver);
-            Debug.Log("Reproduciendo música...");
+            sourceEfectos.PlayOneShot(clipGameOver);
         }
 
         yield return new WaitForSecondsRealtime(6f);
 
         Time.timeScale = 1f;
-        Debug.Log("Cargando escena de menú: " + nombreEscenaMenu);
         SceneManager.LoadScene(nombreEscenaMenu);
     }
 }
