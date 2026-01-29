@@ -483,7 +483,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (InputManager.dashPressed)
         {
-            if(isGrounded && dashOnGroundTimer < 0 && !isDashing) InitiateDash();
+            if(isGrounded && dashOnGroundTimer < 0 && !isDashing && numberOfDashesUsed < movementStats.numberOfDashes) InitiateDash();
 
             else if (!isGrounded && numberOfDashesUsed < movementStats.numberOfDashes && !isDashing)
             {

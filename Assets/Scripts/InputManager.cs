@@ -55,4 +55,16 @@ public class InputManager : MonoBehaviour
         maskActionPressed = maskAction.WasPressedThisFrame();
         maskActionReleased = maskAction.WasReleasedThisFrame();
     }
+
+    public void ChangeDashInput(bool valid)
+    {
+        if (valid)
+        {
+            dashAction.Enable();
+        }
+        else
+        {
+            dashAction.Disable();
+        }
+    }
 }

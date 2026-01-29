@@ -5,19 +5,33 @@ using UnityEngine;
 
 public class PlayerMaskInteraction : MonoBehaviour
 {
-    [SerializeField]
-    private List<GameObject> masks;
+    public List<GameObject> masks;
 
     private GameObject currentMask;
     private PlayerMovement playerMovement;
+    private InputManager inputManager;
+    private MaskMenu maskMenu;
     public Transform maskHoldPoint;
 
-    private int currentMaskIndex = 0;
+    private int currentMaskIndex;
 
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
+
+        //Find the InputManager in the scene
+        inputManager = FindAnyObjectByType<InputManager>();
+        maskMenu = FindAnyObjectByType<MaskMenu>();
     }
+
+    private void Start()
+    {
+        //Empty the list of masks at the start
+        masks.Clear();
+
+        currentMaskIndex = -1;
+    }
+
     private void Update()
     {
         if (InputManager.maskActionPressed)
@@ -36,7 +50,7 @@ public class PlayerMaskInteraction : MonoBehaviour
         }
     }
 
-    private void SwitchMask()
+    public void SwitchMask()
     {
         if (currentMask != null)
         {
@@ -51,7 +65,10 @@ public class PlayerMaskInteraction : MonoBehaviour
         currentMask.transform.SetParent(maskHoldPoint);
 
         currentMask.GetComponent<Mask>().playerMovement = playerMovement;
+        currentMask.GetComponent<Mask>().inputManager = inputManager;
         currentMask.GetComponent<Mask>()?.ResetMovementStats();
         currentMask.GetComponent<Mask>()?.OnEquip();
+
+        maskMenu.MaskVisual(currentMaskIndex);
     }
 }
