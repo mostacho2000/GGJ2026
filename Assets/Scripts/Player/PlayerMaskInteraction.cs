@@ -85,17 +85,7 @@ public class PlayerMaskInteraction : MonoBehaviour
         if (other.CompareTag("Projectile"))
         {
             // If the player is projectile protected, make the projectile stick
-            if (playerMovement.projectileProtected)
-            {
-                var arrowStick = other.GetComponent<ArrowStick>();
-                if (arrowStick != null)
-                {
-                    arrowStick.Stick("Player Projectile Protection");
-                }
-            }
-
-            // Else, make the player respawn
-            else
+            if (!playerMovement.projectileProtected)
             {
                 animator.SetTrigger("Dead");
                 RespawnManager.I.Respawn(transform.root.gameObject);
