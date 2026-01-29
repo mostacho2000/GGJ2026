@@ -149,7 +149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9020400454623346651, guid: 431a973e18d84a94c9959911cc4574aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.64
+      value: 1.47
       objectReference: {fileID: 0}
     - target: {fileID: 9020400454623346651, guid: 431a973e18d84a94c9959911cc4574aa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -761,8 +761,8 @@ Transform:
   m_GameObject: {fileID: 601980287}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.22, y: -4.35, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -8.97, y: -2.54, z: 0}
+  m_LocalScale: {x: 1.93, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1194,7 +1194,7 @@ Transform:
   m_GameObject: {fileID: 1352291003}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.85, y: -1.7, z: 0}
+  m_LocalPosition: {x: 5.38, y: -1.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1475,6 +1475,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1735114526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1735114527}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1735114527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735114526}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.36, y: -1.84, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1798572621
 GameObject:
   m_ObjectHideFlags: 0
@@ -2071,7 +2102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8483178538963253777, guid: 196c3800411eb2847b2e1161a3aff73c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.02
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 8483178538963253777, guid: 196c3800411eb2847b2e1161a3aff73c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2151,3 +2182,4 @@ SceneRoots:
   - {fileID: 601980290}
   - {fileID: 44870160}
   - {fileID: 816011418}
+  - {fileID: 1735114527}
