@@ -52,7 +52,7 @@ MonoBehaviour:
   wallSlideSpeed: 26
   wallSlideDeceleration: 50
   wallJumpDirection: {x: -20, y: 3}
-  wallJumpPostBufferTime: 0.125
+  wallJumpPostBufferTime: 0
   wallJumpGravityOnReleaseMultiplier: 1
   debugShowIsGroundedRays: 0
   debugShowHitHeadRays: 0

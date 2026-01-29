@@ -1,17 +1,22 @@
 using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerMaskInteraction : MonoBehaviour
 {
     public List<GameObject> masks;
 
+    public List<AnimatorController> maskAnimators;
+
     private GameObject currentMask;
     private PlayerMovement playerMovement;
     private InputManager inputManager;
     private MaskMenu maskMenu;
     public Transform maskHoldPoint;
+
+    private Animator animator;
 
     private int currentMaskIndex;
 
@@ -22,6 +27,7 @@ public class PlayerMaskInteraction : MonoBehaviour
         //Find the InputManager in the scene
         inputManager = FindAnyObjectByType<InputManager>();
         maskMenu = FindAnyObjectByType<MaskMenu>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Start()
@@ -30,6 +36,7 @@ public class PlayerMaskInteraction : MonoBehaviour
         masks.Clear();
 
         currentMaskIndex = -1;
+        playerMovement.projectileProtected = false;
     }
 
     private void Update()
@@ -63,6 +70,7 @@ public class PlayerMaskInteraction : MonoBehaviour
         }
         currentMask = Instantiate(masks[currentMaskIndex], maskHoldPoint.position, Quaternion.identity);
         currentMask.transform.SetParent(maskHoldPoint);
+        animator.runtimeAnimatorController = maskAnimators[currentMaskIndex];
 
         currentMask.GetComponent<Mask>().playerMovement = playerMovement;
         currentMask.GetComponent<Mask>().inputManager = inputManager;
@@ -70,5 +78,28 @@ public class PlayerMaskInteraction : MonoBehaviour
         currentMask.GetComponent<Mask>()?.OnEquip();
 
         maskMenu.MaskVisual(currentMaskIndex);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Projectile"))
+        {
+            // If the player is projectile protected, make the projectile stick
+            if (playerMovement.projectileProtected)
+            {
+                var arrowStick = other.GetComponent<ArrowStick>();
+                if (arrowStick != null)
+                {
+                    arrowStick.Stick("Player Projectile Protection");
+                }
+            }
+
+            // Else, make the player respawn
+            else
+            {
+                animator.SetTrigger("Dead");
+                RespawnManager.I.Respawn(transform.root.gameObject);
+            }
+        }
     }
 }

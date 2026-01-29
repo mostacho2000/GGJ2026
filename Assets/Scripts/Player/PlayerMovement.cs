@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Collider2D feetCollider;
 
     private Rigidbody2D rb;
+    private Animator animator;
 
     public float horizontalVelocity { get; private set; }
     
@@ -66,9 +67,13 @@ public class PlayerMovement : MonoBehaviour
     private float dashFastFallTime;
     private float dashFastFallReleaseSpeed;
 
+    public bool projectileProtected;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        //Find the animator in children
+        animator = GetComponentInChildren<Animator>();
         isFacingRight = true;
     }
 
@@ -92,10 +97,16 @@ public class PlayerMovement : MonoBehaviour
         WallJump();
         Dash();
 
-        if (isGrounded) Move(movementStats.groundAcceleration, movementStats.groundDeceleration, InputManager.movement);
+        if (isGrounded)
+        {
+            Move(movementStats.groundAcceleration, movementStats.groundDeceleration, InputManager.movement);
+
+            // Set animator parameters here if needed
+            animator.SetBool("isMoving", Mathf.Abs(horizontalVelocity) > 0.1f);
+        }
         else
         {
-            if(useWallJumpMovementStats) Move(movementStats.wallJumpMoveAcceleration, movementStats.wallJumpMoveDeceleration, InputManager.movement);
+            if (useWallJumpMovementStats) Move(movementStats.wallJumpMoveAcceleration, movementStats.wallJumpMoveDeceleration, InputManager.movement);
             else Move(movementStats.airAcceleration, movementStats.airDeceleration, InputManager.movement);
         }
 
@@ -231,6 +242,9 @@ public class PlayerMovement : MonoBehaviour
         jumpBufferTimer = 0f;
         numberOfJumps += numberOfJumpsUsed;
         verticalVelocity = movementStats.initialJumpVelocity;
+
+        if (numberOfJumps == 1) animator.SetTrigger("Jump");
+        if (numberOfJumps == 2) animator.SetTrigger("DoubleJump");
     }
 
     private void Jump()
@@ -538,7 +552,6 @@ public class PlayerMovement : MonoBehaviour
         dashTimer = 0f;
         dashOnGroundTimer = movementStats.timeBetweenDashesOnGround;
 
-        ResetDashes();
         ResetWallJumpValues();
         StopWallSlide();
     }

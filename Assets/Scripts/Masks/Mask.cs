@@ -15,6 +15,9 @@ public abstract class Mask : MonoBehaviour
     {
         playerMovementStats.numberOfDashes = 0;
         playerMovementStats.maxJumpNumber = 1;
+        playerMovementStats.maxFallSpeed = 26f;
+        playerMovementStats.wallJumpPostBufferTime = 0f;
         inputManager.ChangeDashInput(true);
+        playerMovement.projectileProtected = false;
     }
 }

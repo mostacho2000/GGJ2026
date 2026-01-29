@@ -33,7 +33,7 @@ public class InputManager : MonoBehaviour
         moveAction = playerInput.actions["Move"];
         jumpAction = playerInput.actions["Jump"];
         dashAction = playerInput.actions["Dash"];
-        runAction = playerInput.actions["Run"];
+        //runAction = playerInput.actions["Run"];
         switchMask = playerInput.actions["SwitchMask"];
         maskAction = playerInput.actions["MaskAction"];
     }
@@ -49,7 +49,7 @@ public class InputManager : MonoBehaviour
 
         dashPressed = dashAction.WasPressedThisFrame();
 
-        runHeld = runAction.IsPressed();
+        //runHeld = runAction.IsPressed();
 
         maskSwitchPressed = switchMask.WasPressedThisFrame();
         maskActionPressed = maskAction.WasPressedThisFrame();

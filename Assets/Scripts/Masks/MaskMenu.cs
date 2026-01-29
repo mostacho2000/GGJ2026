@@ -1,11 +1,15 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEditor.Animations;
 
 public class MaskMenu : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] masks;
+
+    [SerializeField]
+    private AnimatorController[] animators;
 
     [SerializeField]
     private Button[] buttons;
@@ -22,7 +26,7 @@ public class MaskMenu : MonoBehaviour
     [SerializeField]
     private GameObject visualCanvas;
 
-    public PlayerMaskInteraction playerMaskInteraction;
+    private PlayerMaskInteraction playerMaskInteraction;
 
     private void Awake()
     {
@@ -44,6 +48,7 @@ public class MaskMenu : MonoBehaviour
     public void SelectMask(int index)
     {
         playerMaskInteraction.masks.Add(masks[index]);
+        playerMaskInteraction.maskAnimators.Add(animators[index]);
 
         if (playerMaskInteraction.masks.Count == 3)
         {

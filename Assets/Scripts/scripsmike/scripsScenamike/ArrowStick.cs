@@ -6,14 +6,10 @@ public class ArrowStick : MonoBehaviour
     public bool becomePlatform = true;
 
     private bool stuck;
+    [SerializeField]
     private Collider2D col;
 
-    private void Awake()
-    {
-        col = GetComponent<Collider2D>();
-    }
-
-    private void Stick(string reason)
+    public void Stick(string reason)
     {
         if (stuck) return;
         stuck = true;
@@ -27,7 +23,9 @@ public class ArrowStick : MonoBehaviour
         // Volverse sólido
         if (becomePlatform && col != null)
         {
-            col.isTrigger = false;
+            // deshabilitar el collider
+            col.enabled = false;
+
             gameObject.tag = "Platform";
         }
     }
