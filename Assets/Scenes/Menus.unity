@@ -2229,7 +2229,7 @@ MonoBehaviour:
   panelPrincipal: {fileID: 716578038}
   panelSonido: {fileID: 851789714}
   panelTutorial: {fileID: 1040250793}
-  nombreEscenaJuego: Nivel1
+  nombreEscenaJuego: MovimientoJugador
 --- !u!4 &1509268502
 Transform:
   m_ObjectHideFlags: 0
