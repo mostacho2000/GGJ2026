@@ -15,6 +15,6 @@ public class WallSlideMask : Mask
 
     public override void Deactivate()
     {
-        playerMovementStats.wallSlideSpeed = 10f;
+        playerMovementStats.wallSlideSpeed = 50f;
     }
 }
