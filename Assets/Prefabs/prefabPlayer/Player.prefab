@@ -85,6 +85,7 @@ MonoBehaviour:
   feetCollider: {fileID: 7070691500523212660}
   numberOfJumps: 0
   isWallJumping: 0
+  projectileProtected: 0
 --- !u!50 &2574866546023581360
 Rigidbody2D:
   serializedVersion: 5
@@ -124,11 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f81155c4c0eb8e48a46b9c3bc9104a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMaskInteraction
-  masks:
-  - {fileID: 21273437784651316, guid: 3c70d0b5f19d0e444b76d563a15792fa, type: 3}
-  - {fileID: 978087251865901739, guid: 8bb8ecb8cc8d9f844953515dd63fddaa, type: 3}
-  - {fileID: 4745430115729157565, guid: 9f9cd3c5e7fa6b44eb9cb1f144b298b0, type: 3}
-  - {fileID: 3395756513234128169, guid: 24b8eca232a9dc1499bdce7bdb33737b, type: 3}
+  masks: []
+  maskAnimators: []
   maskHoldPoint: {fileID: 1831486296573421475}
 --- !u!1 &5894137735832739717
 GameObject:
@@ -141,7 +139,7 @@ GameObject:
   - component: {fileID: 3552336989597148919}
   m_Layer: 0
   m_Name: Colliders
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,6 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1073927877109196761}
   - component: {fileID: 2188695890284438255}
+  - component: {fileID: 7722412694137219572}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -189,9 +188,9 @@ Transform:
   m_GameObject: {fileID: 6035391616505063484}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0.85, z: 0}
+  m_LocalScale: {x: 5.68, y: 5.68, z: 5.68}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 9020400454623346651}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -244,16 +243,38 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -858720847871501929, guid: cd3aecd5e5ff5174081b7354018cf399, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.24, y: 0.53}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!95 &7722412694137219572
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6035391616505063484}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c61e85f35b4194449b29e9da57fdd4e0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7214176094261759962
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +287,7 @@ GameObject:
   - component: {fileID: 7070691500523212660}
   m_Layer: 0
   m_Name: Feet
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -344,7 +365,7 @@ GameObject:
   - component: {fileID: 3380583395281553531}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
