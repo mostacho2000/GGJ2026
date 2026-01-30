@@ -42,17 +42,17 @@ MonoBehaviour:
   timeToJumpApex: 0.35
   gravityOnReleaseMultiplier: 2
   maxFallSpeed: 26
-  maxJumpNumber: 2
+  maxJumpNumber: 1
   resetJumpsOnWallSlide: 1
   timeForUpwardsCancel: 0.027
   apexThreshold: 0.97
   apexHangTime: 0.075
   jumpBufferTime: 0.125
   coyoteTime: 0.1
-  wallSlideSpeed: 10
+  wallSlideSpeed: 0.01
   wallSlideDeceleration: 50
   wallJumpDirection: {x: -20, y: 3}
-  wallJumpPostBufferTime: 0
+  wallJumpPostBufferTime: 0.125
   wallJumpGravityOnReleaseMultiplier: 1
   debugShowIsGroundedRays: 0
   debugShowHitHeadRays: 0
