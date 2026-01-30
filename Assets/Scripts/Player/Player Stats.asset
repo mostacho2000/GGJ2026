@@ -25,7 +25,7 @@ MonoBehaviour:
   DashSpeed: 25
   timeBetweenDashesOnGround: 0.225
   resetDashOnWallSlide: 1
-  numberOfDashes: 1
+  numberOfDashes: 0
   dashDiagonallyBias: 0.4
   dashGravityOnReleaseMultiplier: 1
   dashTimeForUpwardsCancel: 0.027
@@ -42,14 +42,14 @@ MonoBehaviour:
   timeToJumpApex: 0.35
   gravityOnReleaseMultiplier: 2
   maxFallSpeed: 26
-  maxJumpNumber: 1
+  maxJumpNumber: 2
   resetJumpsOnWallSlide: 1
   timeForUpwardsCancel: 0.027
   apexThreshold: 0.97
   apexHangTime: 0.075
   jumpBufferTime: 0.125
   coyoteTime: 0.1
-  wallSlideSpeed: 26
+  wallSlideSpeed: 10
   wallSlideDeceleration: 50
   wallJumpDirection: {x: -20, y: 3}
   wallJumpPostBufferTime: 0

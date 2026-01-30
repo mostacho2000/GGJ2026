@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     public float verticalVelocity { get; private set; }
     private bool isJumping;
     private bool isFastFalling;
-    private bool isFalling;
+    public bool isFalling;
     private float fastFallTime;
     private float fastFallReleaseSpeed;
     public int numberOfJumps;
@@ -270,7 +270,11 @@ public class PlayerMovement : MonoBehaviour
                     {
                         timePastApexThreshold += Time.fixedDeltaTime;
                         if (timePastApexThreshold < movementStats.apexHangTime) verticalVelocity = 0f;
-                        else verticalVelocity = -0.01f;
+                        else
+                        {
+                            verticalVelocity = -0.01f;
+                            animator.SetBool("isGliding", movementStats.maxFallSpeed < 25f);
+                        }
                     }
                 }
 
@@ -285,6 +289,7 @@ public class PlayerMovement : MonoBehaviour
             else if (verticalVelocity < 0f)
             {
                 if(!isFalling) isFalling = true;
+                animator.SetBool("isGliding", movementStats.maxFallSpeed < 25f);
             }
         }
 
@@ -302,24 +307,35 @@ public class PlayerMovement : MonoBehaviour
 
     private void WallSlideCheck()
     {
-        if(isTouchingWall && !isGrounded && !isDashing)
+        if(isTouchingWall && !isGrounded)
         {
-            ResetJumpValues();
-            ResetWallJumpValues();
-            ResetDashValues();
-
-            if(movementStats.resetDashOnWallSlide) ResetDashes();
-
-            if (verticalVelocity < 0f && !isWallSliding)
+            if (movementStats.wallJumpPostBufferTime <= 0.1f)
             {
-                isWallSliding = true;
-                isWallSlideFalling = false;
+                int bounceDirection = isFacingRight ? -1 : 1;
+                horizontalVelocity = bounceDirection * 10f;
+            }
 
-                if (movementStats.resetJumpsOnWallSlide) numberOfJumps = 0;
+            else
+            {
+                ResetJumpValues();
+                ResetWallJumpValues();
+                ResetDashValues();
+
+                if (movementStats.resetDashOnWallSlide) ResetDashes();
+
+                if (verticalVelocity < 0f && !isWallSliding)
+                {
+                    isWallSliding = true;
+                    isWallSlideFalling = false;
+
+                    animator.SetBool("WallSlide", true);
+
+                    if (movementStats.resetJumpsOnWallSlide) numberOfJumps = 0;
+                }
             }
         }
 
-        else if (isWallSliding && !isTouchingWall && !isGrounded && !isWallSlideFalling)
+        else if (isWallSliding && !isTouchingWall && !isGrounded)
         {
             isWallSlideFalling = true;
             StopWallSlide();
@@ -334,6 +350,7 @@ public class PlayerMovement : MonoBehaviour
         {
             numberOfJumps++;
             isWallSliding = false;
+            animator.SetBool("WallSlide", false);
         }
     }
 
@@ -515,6 +532,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void InitiateDash()
     {
+        animator.SetTrigger("Dash");
         dashDirection = InputManager.movement;
 
         Vector2 closestDirection = Vector2.zero;
@@ -561,7 +579,7 @@ public class PlayerMovement : MonoBehaviour
         if(isDashing)
         {
             dashTimer += Time.fixedDeltaTime;
-            if(dashTimer >= movementStats.dashDuration)
+            if (dashTimer >= movementStats.dashDuration)
             {
                 if (isGrounded) ResetDashes();
 
@@ -606,6 +624,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if ((isJumping || isFalling || isWallJumpFalling || isWallJumping || isWallSlideFalling || isWallSliding || isDashFastFalling) && isGrounded && verticalVelocity <= 0f)
         {
+
             ResetJumpValues();
             StopWallSlide();
             ResetWallJumpValues();
@@ -644,7 +663,11 @@ public class PlayerMovement : MonoBehaviour
         Vector2 boxCastSize = new Vector2(feetCollider.bounds.size.x, movementStats.groundCheckDistance);
 
         groundHit = Physics2D.BoxCast(boxCastOrigin, boxCastSize, 0f, Vector2.down, movementStats.groundCheckDistance, movementStats.groundLayer);
-        if (groundHit.collider != null) isGrounded = true;
+        if (groundHit.collider != null)
+        {
+            isGrounded = true;
+            animator.SetBool("isGliding", false);
+        }
         else isGrounded = false;
 
         // Debug to draw box
