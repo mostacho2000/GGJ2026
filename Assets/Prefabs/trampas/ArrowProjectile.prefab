@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6625645677343878252}
   - component: {fileID: 928207295800489804}
   - component: {fileID: 8446183199295490149}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: ArrowProjectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ArrowStick
   stickTo:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   becomePlatform: 1
   col: {fileID: 8446183199295490149}
 --- !u!50 &928207295800489804
@@ -196,14 +196,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527258206281271408}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 0.0001
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -211,9 +211,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &8446183199295490149
 BoxCollider2D:
@@ -245,7 +245,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
