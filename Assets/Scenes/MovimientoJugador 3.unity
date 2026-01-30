@@ -5349,7 +5349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8296097752360864564, guid: 196c3800411eb2847b2e1161a3aff73c, type: 3}
       propertyPath: interval
-      value: 0.1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8296097752360864564, guid: 196c3800411eb2847b2e1161a3aff73c, type: 3}
       propertyPath: direction.x
@@ -6504,7 +6504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7070691500523212660, guid: 431a973e18d84a94c9959911cc4574aa, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7722412694137219572, guid: 431a973e18d84a94c9959911cc4574aa, type: 3}
       propertyPath: m_Controller
