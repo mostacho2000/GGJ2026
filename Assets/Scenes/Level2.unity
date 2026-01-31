@@ -697,7 +697,12 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 2c1f6106f63cd2d478d017bbd191b88d, type: 2}
   - {fileID: 9100000, guid: 991805640a5432748ac0bebb5f8fa8d0, type: 2}
   - {fileID: 9100000, guid: 7c639dc6b5b6f834596e6a15219c3d05, type: 2}
-  maskIcons: []
+  maskIcons:
+  - {fileID: 4882599068058217983, guid: 3f2ba5c229bfa5c45a468d0d0ee04443, type: 3}
+  - {fileID: -6746473908664529050, guid: 75049ff72b9f5b347a3ebf887b6752d1, type: 3}
+  - {fileID: 381434749074476646, guid: 0bf6f6925bae35349b5615cf8db2ee75, type: 3}
+  - {fileID: 5323061275725781560, guid: 7164f2b9eae80a04384c645f6e56a478, type: 3}
+  - {fileID: 1149551495406603673, guid: 5d1b64dd95a5e3043884ba9de044d0db, type: 3}
   buttons:
   - {fileID: 954564040}
   - {fileID: 22843641}
@@ -706,7 +711,10 @@ MonoBehaviour:
   - {fileID: 544333240}
   panel: {fileID: 1468553780}
   visualCanvas: {fileID: 1452289845}
-  hudSlots: []
+  hudSlots:
+  - {fileID: 722157734}
+  - {fileID: 1468097605}
+  - {fileID: 1787985729}
 --- !u!114 &289312552
 MonoBehaviour:
   m_ObjectHideFlags: 0
