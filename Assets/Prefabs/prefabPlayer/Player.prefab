@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 6620438650052961691}
   - component: {fileID: 2574866546023581360}
   - component: {fileID: 7229838352741022209}
+  - component: {fileID: 7293888344482723614}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -83,6 +84,7 @@ MonoBehaviour:
   movementStats: {fileID: 11400000, guid: 9371511db43f0c043ad58891bd5a4c73, type: 2}
   bodyCollider: {fileID: 3380583395281553531}
   feetCollider: {fileID: 7070691500523212660}
+  isFalling: 0
   numberOfJumps: 0
   isWallJumping: 0
   projectileProtected: 0
@@ -128,6 +130,19 @@ MonoBehaviour:
   masks: []
   maskAnimators: []
   maskHoldPoint: {fileID: 1831486296573421475}
+--- !u!114 &7293888344482723614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2721413702226036178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e938b7900686084cb7b193fdc4525d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  maxHP: 1
 --- !u!1 &5894137735832739717
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,8 +203,8 @@ Transform:
   m_GameObject: {fileID: 6035391616505063484}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.85, z: 0}
-  m_LocalScale: {x: 5.68, y: 5.68, z: 5.68}
+  m_LocalPosition: {x: 0, y: 0.5429, z: 0}
+  m_LocalScale: {x: 5.68, y: 4.521012, z: 5.68}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 9020400454623346651}
@@ -263,7 +278,7 @@ Animator:
   m_GameObject: {fileID: 6035391616505063484}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c61e85f35b4194449b29e9da57fdd4e0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2c1f6106f63cd2d478d017bbd191b88d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

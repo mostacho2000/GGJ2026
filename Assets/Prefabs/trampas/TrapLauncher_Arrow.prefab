@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8483178538963253777}
   - component: {fileID: 8296097752360864564}
-  - component: {fileID: 7807309354069433488}
+  - component: {fileID: 6252791603876692368}
   m_Layer: 0
   m_Name: TrapLauncher_Arrow
   m_TagString: Untagged
@@ -81,7 +81,7 @@ MonoBehaviour:
   firePoint: {fileID: 2829736201315755633}
   interval: 2
   direction: {x: -1, y: 0}
---- !u!61 &7807309354069433488
+--- !u!61 &6252791603876692368
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,7 +115,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -35.189022, y: 5.7064095}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -125,5 +125,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 109.824486, y: 85.05047}
   m_EdgeRadius: 0

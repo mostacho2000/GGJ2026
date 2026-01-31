@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6370651201051989878}
   - component: {fileID: 7084894270429173718}
   - component: {fileID: 2169697155859122026}
-  - component: {fileID: 8346316278601307767}
   - component: {fileID: 6625645677343878252}
+  - component: {fileID: 8346316278601307767}
   - component: {fileID: 928207295800489804}
   m_Layer: 0
   m_Name: ArrowProjectile
@@ -125,6 +125,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageOnTouch
   damage: 1
+--- !u!114 &6625645677343878252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527258206281271408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17c50762a7fa7f46827af637f068b0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArrowStick
+  stickTo:
+    serializedVersion: 2
+    m_Bits: 0
+  becomePlatform: 0
+  col: {fileID: 8346316278601307767}
 --- !u!61 &8346316278601307767
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -159,7 +176,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.008595824, y: 0.08336218}
+  m_Offset: {x: 0.008595824, y: 0.08195551}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0.5}
@@ -169,25 +186,8 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.7107998, y: 0.1550096}
+  m_Size: {x: 0.7107998, y: 0.105921775}
   m_EdgeRadius: 0
---- !u!114 &6625645677343878252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 527258206281271408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f17c50762a7fa7f46827af637f068b0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ArrowStick
-  stickTo:
-    serializedVersion: 2
-    m_Bits: 0
-  becomePlatform: 0
-  col: {fileID: 8346316278601307767}
 --- !u!50 &928207295800489804
 Rigidbody2D:
   serializedVersion: 5
@@ -240,13 +240,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2367065843422849587}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 843030351409495222}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &2687103505679916965
 SpriteRenderer:
   serializedVersion: 2

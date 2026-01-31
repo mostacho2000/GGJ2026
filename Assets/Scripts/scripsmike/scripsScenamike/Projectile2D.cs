@@ -12,13 +12,19 @@ public class Projectile2D : MonoBehaviour
     {
         dir = direction.normalized;
 
-        if (rotateToVelocity)
+        if (rotateToVelocity && dir.sqrMagnitude > 0.0001f)
         {
             float ang = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, ang);
         }
 
         Destroy(gameObject, lifeTime);
+    }
+
+    // ✅ Para que no te marque error si alguien usa SetDirection en otros scripts
+    public void SetDirection(Vector2 direction)
+    {
+        Fire(direction);
     }
 
     private void Update()

@@ -1,76 +1,42 @@
+using System.Collections;
 using UnityEngine;
 
 public class TrapLauncher : MonoBehaviour
 {
     [Header("REFERENCES")]
-    public GameObject projectilePrefab;
-    public Transform firePoint;
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private Transform firePoint;
 
     [Header("FIRING")]
-    public float interval = 1.2f;
-    public Vector2 direction = Vector2.right;
+    [SerializeField] private float interval = 2f;
+    [SerializeField] private Vector2 direction = Vector2.left;
 
-    private bool playerInside;
-    private float timer;
-
-    private void Update()
+    private void Start()
     {
-        if (!playerInside) return;
+        StartCoroutine(FireRoutine());
+    }
 
-        timer += Time.deltaTime;
-        if (timer >= interval)
+    private IEnumerator FireRoutine()
+    {
+        while (true)
         {
-            timer = 0f;
-            Debug.Log("DISPARANDO");
-            Shoot();
+            yield return new WaitForSeconds(interval);
+            Fire();
         }
     }
 
-    private void Shoot()
+    private void Fire()
     {
-        if (projectilePrefab == null)
-        {
-            Debug.LogError("NO HAY PROJECTILE PREFAB");
-            return;
-        }
+        if (!projectilePrefab || !firePoint) return;
 
-        if (firePoint == null)
-        {
-            Debug.LogError("NO HAY FIRE POINT");
-            return;
-        }
+        var go = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
 
-        GameObject proj = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-        Debug.Log("PROYECTIL INSTANCIADO");
-
-        Projectile2D p = proj.GetComponent<Projectile2D>();
-        if (p != null)
+        var proj = go.GetComponent<Projectile2D>();
+        if (proj != null)
         {
-            p.Fire(direction);
-        }
-        else
-        {
-            Debug.LogError("EL PREFAB NO TIENE Projectile2D");
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.Log("ALGO ENTRO AL TRIGGER: " + other.name);
-
-        if (other.transform.root.CompareTag("Player"))
-        {
-            Debug.Log("PLAYER DETECTADO DENTRO DE LA ZONA");
-            playerInside = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.transform.root.CompareTag("Player"))
-        {
-            Debug.Log("PLAYER SALIO DE LA ZONA");
-            playerInside = false;
+            // si por error direction está en (0,0), dispara hacia la derecha
+            Vector2 dir = (direction.sqrMagnitude < 0.0001f) ? Vector2.right : direction.normalized;
+            proj.Fire(dir);
         }
     }
 }
