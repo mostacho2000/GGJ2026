@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile2D
   speed: 10
-  lifeTime: 3
+  lifeTime: 10
   rotateToVelocity: 1
 --- !u!114 &2169697155859122026
 MonoBehaviour:

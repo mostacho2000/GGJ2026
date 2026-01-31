@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class PlatformCollider : MonoBehaviour
 {
-    // --- Player Parenting (No Rigidbody) ---
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Note: The Player must have a Rigidbody2D for this collision to be detected
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.transform.SetParent(transform);
+            // 'true' mantiene la posición/rotación/escala en el mundo
+            // evitando que el jugador se deforme si la plataforma está escalada
+            collision.transform.SetParent(transform, true);
         }
     }
 
@@ -17,6 +17,9 @@ public class PlatformCollider : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.transform.SetParent(null);
+
+            // Opcional: Si el jugador mantiene escala extraña al salir
+            // collision.transform.localScale = Vector3.one; 
         }
     }
 }
