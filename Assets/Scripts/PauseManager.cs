@@ -47,14 +47,19 @@ public class PauseManager : MonoBehaviour
     {
         estaPausado = true;
         if (panelPausa != null) panelPausa.SetActive(true);
-        Time.timeScale = 0f; 
+        // Cambia el mapa de acciones si usas el sistema de Input
+        InputManager.playerInput.SwitchCurrentActionMap("UI");
+
+        Time.timeScale = 0f;
     }
 
     public void ContinuarJuego()
     {
         estaPausado = false;
         if (panelPausa != null) panelPausa.SetActive(false);
-        Time.timeScale = 1f; 
+        Time.timeScale = 1f;
+        // Vuelve al mapa de acciones del juego
+        InputManager.playerInput.SwitchCurrentActionMap("Gameplay");
     }
 
     public void IrAlMenuConEfecto()
