@@ -803,7 +803,7 @@ RectTransform:
   m_GameObject: {fileID: 258782490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 4, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1193253611}
@@ -1631,8 +1631,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 9211799452513510374, guid: a4e60f2a88cd94047b20de2a9e95db81, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2706,7 +2706,7 @@ RectTransform:
   m_GameObject: {fileID: 557788966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 4, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1193253611}
@@ -2792,7 +2792,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6113094385906321796, guid: f3d7d436af6f1ca419682b9e2b352a9a, type: 3}
+  m_Sprite: {fileID: 5614280983207795659, guid: 0eb9d39d978f7a244b6625f41d6f60d0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9944,9 +9944,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   target: {fileID: 1489641993}
-  offset: {x: 0, y: 1.5, z: -10}
+  offset: {x: 0, y: 1.5}
   smoothTime: 0.25
-  enableLimits: 1
+  useLimits: 0
   minLimit: {x: -15.87, y: -44.6}
   maxLimit: {x: 57.8, y: 23.7}
 --- !u!4 &2059369408 stripped

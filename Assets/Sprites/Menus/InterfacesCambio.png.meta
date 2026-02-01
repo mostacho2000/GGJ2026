@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: 0eb9d39d978f7a244b6625f41d6f60d0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5242074017912204809
+    second: InterfacesCambio_0
+  - first:
+      213: 6179797099902943793
+    second: InterfacesCambio_1
+  - first:
+      213: -545714309468909742
+    second: InterfacesCambio_2
+  - first:
+      213: 5734134838355389151
+    second: InterfacesCambio_3
+  - first:
+      213: 5614280983207795659
+    second: InterfacesCambio_4
+  - first:
+      213: 7781337421130134557
+    second: InterfacesCambio_5
+  - first:
+      213: 6563205844078026601
+    second: InterfacesCambio_6
+  - first:
+      213: 2960579320074915882
+    second: InterfacesCambio_7
+  - first:
+      213: -4296983800912946925
+    second: InterfacesCambio_8
+  - first:
+      213: 3005217425680964921
+    second: InterfacesCambio_9
+  - first:
+      213: 4806121061589089217
+    second: InterfacesCambio_10
+  - first:
+      213: -2222614363797680680
+    second: InterfacesCambio_11
+  - first:
+      213: 114440067381385382
+    second: InterfacesCambio_12
+  - first:
+      213: -8231928337941806147
+    second: InterfacesCambio_13
+  - first:
+      213: -4033628885940394803
+    second: InterfacesCambio_14
+  - first:
+      213: -4508389455798972957
+    second: InterfacesCambio_15
+  - first:
+      213: -597165899003699701
+    second: InterfacesCambio_16
+  - first:
+      213: 5890519750758340840
+    second: InterfacesCambio_17
+  - first:
+      213: -9189547925928302119
+    second: InterfacesCambio_18
+  - first:
+      213: -66837597703224019
+    second: InterfacesCambio_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: InterfacesCambio_0
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 1271
+        width: 1502
+        height: 830
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f1d90454796047b0800000000000000
+      internalID: -5242074017912204809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterfacesCambio_1
+      rect:
+        serializedVersion: 2
+        x: 1831
+        y: 1901
+        width: 334
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13244bb68bc03c550800000000000000
+      internalID: 6179797099902943793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterfacesCambio_2
+      rect:
+        serializedVersion: 2
+        x: 2315
+        y: 1893
+        width: 386
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25f02431abb3d68f0800000000000000
+      internalID: -545714309468909742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterfacesCambio_3
+      rect:
+        serializedVersion: 2
+        x: 2787
+        y: 1253
+        width: 926
+        height: 830
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fda6d56314db39f40800000000000000
+      internalID: 5734134838355389151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterfacesCambio_4
+      rect:
+        serializedVersion: 2
+        x: 3799
+        y: 1811
+        width: 386
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcbd459fecee9ed40800000000000000
+      internalID: 5614280983207795659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterfacesCambio_5
+      rect:
+        serializedVersion: 2
+        x: 1831
+        y: 1759
+        width: 334
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d147aef382ddcfb60800000000000000
+      internalID: 7781337421130134557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterfacesCambio_6
+      rect:
+        serializedVersion: 2
+        x: 2315
+        y: 1747
+        width: 386
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96fd90c11f0351b50800000000000000
+      internalID: 6563205844078026601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterfacesCambio_7
+      rect:
+        serializedVersion: 2
+        x: 3799
+        y: 1659
+        width: 386
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a20de6ea437161920800000000000000
+      internalID: 2960579320074915882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterfacesCambio_8
+      rect:
+        serializedVersion: 2
+        x: 1833
+        y: 1617
+        width: 334
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 319d9fcdffb0e54c0800000000000000
+      internalID: -4296983800912946925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterfacesCambio_9
+      rect:
+        serializedVersion: 2
+        x: 2315
+        y: 1601
+        width: 386
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93d178a835da4b920800000000000000
+      internalID: 3005217425680964921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterfacesCambio_10
+      rect:
+        serializedVersion: 2
+        x: 1833
+        y: 1475
+        width: 334
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cb7a8f34a5c2b240800000000000000
+      internalID: 4806121061589089217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterfacesCambio_11
+      rect:
+        serializedVersion: 2
+        x: 2315
+        y: 1455
+        width: 386
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dd88251300b721e0800000000000000
+      internalID: -2222614363797680680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterfacesCambio_12
+      rect:
+        serializedVersion: 2
+        x: 3807
+        y: 1415
+        width: 162
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a8d65c82a2969100800000000000000
+      internalID: 114440067381385382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterfacesCambio_13
+      rect:
+        serializedVersion: 2
+        x: 3991
+        y: 1415
+        width: 162
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db3c1809ac052cd80800000000000000
+      internalID: -8231928337941806147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterfacesCambio_14
+      rect:
+        serializedVersion: 2
+        x: 1833
+        y: 1333
+        width: 334
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc4a4c936eba508c0800000000000000
+      internalID: -4033628885940394803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterfacesCambio_15
+      rect:
+        serializedVersion: 2
+        x: 2315
+        y: 1309
+        width: 386
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ed4cf92dabfe61c0800000000000000
+      internalID: -4508389455798972957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterfacesCambio_16
+      rect:
+        serializedVersion: 2
+        x: 2915
+        y: 1153
+        width: 672
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0e58ed57c076b7f0800000000000000
+      internalID: -597165899003699701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterfacesCambio_17
+      rect:
+        serializedVersion: 2
+        x: 3807
+        y: 1173
+        width: 138
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e89f5601845fb150800000000000000
+      internalID: 5890519750758340840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterfacesCambio_18
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 41
+        width: 1922
+        height: 1082
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d9ad9489da287080800000000000000
+      internalID: -9189547925928302119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterfacesCambio_19
+      rect:
+        serializedVersion: 2
+        x: 2295
+        y: 87
+        width: 1726
+        height: 990
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d25424b1f8b821ff0800000000000000
+      internalID: -66837597703224019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      InterfacesCambio_0: -5242074017912204809
+      InterfacesCambio_1: 6179797099902943793
+      InterfacesCambio_10: 4806121061589089217
+      InterfacesCambio_11: -2222614363797680680
+      InterfacesCambio_12: 114440067381385382
+      InterfacesCambio_13: -8231928337941806147
+      InterfacesCambio_14: -4033628885940394803
+      InterfacesCambio_15: -4508389455798972957
+      InterfacesCambio_16: -597165899003699701
+      InterfacesCambio_17: 5890519750758340840
+      InterfacesCambio_18: -9189547925928302119
+      InterfacesCambio_19: -66837597703224019
+      InterfacesCambio_2: -545714309468909742
+      InterfacesCambio_3: 5734134838355389151
+      InterfacesCambio_4: 5614280983207795659
+      InterfacesCambio_5: 7781337421130134557
+      InterfacesCambio_6: 6563205844078026601
+      InterfacesCambio_7: 2960579320074915882
+      InterfacesCambio_8: -4296983800912946925
+      InterfacesCambio_9: 3005217425680964921
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
