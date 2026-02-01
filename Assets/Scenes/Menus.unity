@@ -692,7 +692,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -748, y: -475}
+  m_AnchoredPosition: {x: 689, y: -419}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &803552223
@@ -1166,8 +1166,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 24.775024, y: 34.0659}
+  m_SizeDelta: {x: 260.1389, y: 123.8757}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1040250795
 MonoBehaviour:
@@ -1189,7 +1189,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4990167758558716969, guid: a4e60f2a88cd94047b20de2a9e95db81, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 628c953461dc33042804ae51242f3e04, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1689,7 +1689,7 @@ MonoBehaviour:
   panelPrincipal: {fileID: 716578038}
   panelSonido: {fileID: 851789714}
   panelTutorial: {fileID: 1040250793}
-  nombreEscenaJuego: MovimientoJugador
+  nombreEscenaJuego: Level1
 --- !u!4 &1509268502
 Transform:
   m_ObjectHideFlags: 0
