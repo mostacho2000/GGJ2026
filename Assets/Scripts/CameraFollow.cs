@@ -1,63 +1,47 @@
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
+public class CameraFollow2D : MonoBehaviour
 {
     [Header("Target")]
     public Transform target;
 
-    [Header("Configuración de Offset")]
-    public Vector3 offset = new Vector3(0f, 1.5f, -10f);
+    [Header("Offset")]
+    public Vector2 offset = new Vector2(0f, 1.5f);
 
-    [Header("Suavizado")]
+    [Header("Smooth")]
     [Range(0.01f, 1f)]
-    public float smoothTime = 0.25f;
-    private Vector3 velocity = Vector3.zero;
+    public float smoothTime = 0.15f;
 
-    [Header("Límites de la Cámara")]
-    [Tooltip("Activa esto para que la cámara no salga de la zona")]
-    public bool enableLimits = true;
-
-    [Tooltip("La esquina inferior izquierda del nivel (X mínima, Y mínima)")]
+    [Header("Limits (optional)")]
+    public bool useLimits = false;
     public Vector2 minLimit;
-
-    [Tooltip("La esquina superior derecha del nivel (X máxima, Y máxima)")]
     public Vector2 maxLimit;
+
+    private Vector3 velocity = Vector3.zero;
 
     void LateUpdate()
     {
         if (target == null) return;
 
-        // 1. Calculamos la posición deseada con el suavizado habitual
-        Vector3 targetPosition = target.position + offset;
-        Vector3 smoothedPosition = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
+        Vector3 desiredPosition = new Vector3(
+            target.position.x + offset.x,
+            target.position.y + offset.y,
+            transform.position.z
+        );
 
-        // 2. Aplicamos los límites (Clamping)
-        if (enableLimits)
+        Vector3 smoothPosition = Vector3.SmoothDamp(
+            transform.position,
+            desiredPosition,
+            ref velocity,
+            smoothTime
+        );
+
+        if (useLimits)
         {
-            // Restringimos la X entre el mínimo y el máximo
-            smoothedPosition.x = Mathf.Clamp(smoothedPosition.x, minLimit.x, maxLimit.x);
-
-            // Restringimos la Y entre el mínimo y el máximo
-            smoothedPosition.y = Mathf.Clamp(smoothedPosition.y, minLimit.y, maxLimit.y);
+            smoothPosition.x = Mathf.Clamp(smoothPosition.x, minLimit.x, maxLimit.x);
+            smoothPosition.y = Mathf.Clamp(smoothPosition.y, minLimit.y, maxLimit.y);
         }
 
-        // 3. Mantenemos el Z fijo (muy importante en 2D)
-        smoothedPosition.z = -10f;
-
-        // 4. Aplicamos la posición final
-        transform.position = smoothedPosition;
-    }
-
-
-    private void OnDrawGizmos()
-    {
-        if (enableLimits)
-        {
-            Gizmos.color = Color.red;
-            // Dibuja un cuadro que representa el área permitida
-            Vector3 center = new Vector3((minLimit.x + maxLimit.x) / 2, (minLimit.y + maxLimit.y) / 2, 0);
-            Vector3 size = new Vector3(maxLimit.x - minLimit.x, maxLimit.y - minLimit.y, 0);
-            Gizmos.DrawWireCube(center, size);
-        }
+        transform.position = smoothPosition;
     }
 }
