@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6625645677343878252}
   - component: {fileID: 8346316278601307767}
   - component: {fileID: 928207295800489804}
+  - component: {fileID: 1496325557668361239}
   m_Layer: 0
   m_Name: ArrowProjectile
   m_TagString: Projectile
@@ -172,7 +173,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -215,6 +216,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1496325557668361239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527258206281271408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af5973ddfdf340145b79878bf901925d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KillZone
 --- !u!1 &2367065843422849587
 GameObject:
   m_ObjectHideFlags: 0
