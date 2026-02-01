@@ -1,14 +1,15 @@
 using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Animations;
 using UnityEngine;
+// SE ELIMINÓ: using UnityEditor.Animations; <--- Esto causaba el error
 
 public class PlayerMaskInteraction : MonoBehaviour
 {
     public List<GameObject> masks;
 
-    public List<AnimatorController> maskAnimators;
+    // CAMBIO: Se usa RuntimeAnimatorController para que funcione en el juego final (.exe)
+    public List<RuntimeAnimatorController> maskAnimators;
 
     private GameObject currentMask;
     private PlayerMovement playerMovement;
@@ -33,7 +34,11 @@ public class PlayerMaskInteraction : MonoBehaviour
     private void Start()
     {
         //Empty the list of masks at the start
+        masks = new List<GameObject>(); // Aseguramos que la lista esté inicializada
         masks.Clear();
+        
+        // También aseguramos que la lista de animadores esté limpia si es necesario
+        // maskAnimators.Clear(); // (Opcional, depende de tu lógica)
 
         currentMaskIndex = -1;
         playerMovement.projectileProtected = false;
@@ -41,19 +46,27 @@ public class PlayerMaskInteraction : MonoBehaviour
 
     private void Update()
     {
-        if (InputManager.maskActionPressed)
+        // Verificar que currentMask no sea nulo antes de acceder a sus componentes
+        if (currentMask != null)
         {
-            currentMask.GetComponent<Mask>()?.Activate();
+            if (InputManager.maskActionPressed)
+            {
+                currentMask.GetComponent<Mask>()?.Activate();
+            }
+
+            if (InputManager.maskActionReleased)
+            {
+                currentMask.GetComponent<Mask>()?.Deactivate();
+            }
         }
 
         if (InputManager.maskSwitchPressed)
         {
-            SwitchMask();
-        }
-
-        if (InputManager.maskActionReleased) 
-        {
-            currentMask.GetComponent<Mask>()?.Deactivate();
+            // Solo intentamos cambiar si tenemos máscaras disponibles
+            if (masks.Count > 0)
+            {
+                SwitchMask();
+            }
         }
     }
 
@@ -68,16 +81,32 @@ public class PlayerMaskInteraction : MonoBehaviour
         {
             currentMaskIndex = 0;
         }
+        
+        // Instanciamos la nueva máscara
         currentMask = Instantiate(masks[currentMaskIndex], maskHoldPoint.position, Quaternion.identity);
         currentMask.transform.SetParent(maskHoldPoint);
-        animator.runtimeAnimatorController = maskAnimators[currentMaskIndex];
+        
+        // Asignamos el animador correspondiente
+        if (currentMaskIndex < maskAnimators.Count)
+        {
+            animator.runtimeAnimatorController = maskAnimators[currentMaskIndex];
+        }
 
-        currentMask.GetComponent<Mask>().playerMovement = playerMovement;
-        currentMask.GetComponent<Mask>().inputManager = inputManager;
-        currentMask.GetComponent<Mask>()?.ResetMovementStats();
-        currentMask.GetComponent<Mask>()?.OnEquip();
+        // Configuramos la máscara
+        Mask maskComponent = currentMask.GetComponent<Mask>();
+        if (maskComponent != null)
+        {
+            maskComponent.playerMovement = playerMovement;
+            maskComponent.inputManager = inputManager;
+            maskComponent.ResetMovementStats();
+            maskComponent.OnEquip();
+        }
 
-        maskMenu.MaskVisual(currentMaskIndex);
+        // Actualizamos el visual del menú
+        if (maskMenu != null)
+        {
+            maskMenu.MaskVisual(currentMaskIndex);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -88,7 +117,10 @@ public class PlayerMaskInteraction : MonoBehaviour
             if (!playerMovement.projectileProtected)
             {
                 animator.SetTrigger("Dead");
-                RespawnManager.I.Respawn(transform.root.gameObject);
+                if (RespawnManager.I != null)
+                {
+                    RespawnManager.I.Respawn(transform.root.gameObject);
+                }
             }
         }
     }
