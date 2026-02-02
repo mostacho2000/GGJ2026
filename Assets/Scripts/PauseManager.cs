@@ -13,8 +13,8 @@ public class PauseManager : MonoBehaviour
     public AudioSource sourceEfectos; 
     public AudioClip clipGameOver;    
     
-    // Ya no es pública para arrastrar, la buscamos por código
-    private AudioSource musicaDeFondo; 
+    // NOTA: Ya no necesitamos la variable 'musicaDeFondo' aquí arriba
+    // La buscaremos dinámicamente para evitar errores de referencia.
 
     [Header("Configuración")]
     public string nombreEscenaMenu = "MenuPrincipal"; 
@@ -24,14 +24,6 @@ public class PauseManager : MonoBehaviour
     {
         if (panelPausa != null) panelPausa.SetActive(false);
         if (panelGameOver != null) panelGameOver.SetActive(false);
-
-        // --- CAMBIO IMPORTANTE ---
-        // Buscamos el objeto que tenga el script MusicaContinua y cogemos su audio
-        MusicaContinua objetoMusica = FindAnyObjectByType<MusicaContinua>();
-        if (objetoMusica != null)
-        {
-            musicaDeFondo = objetoMusica.GetComponent<AudioSource>();
-        }
     }
 
     void Update()
@@ -47,19 +39,14 @@ public class PauseManager : MonoBehaviour
     {
         estaPausado = true;
         if (panelPausa != null) panelPausa.SetActive(true);
-        // Cambia el mapa de acciones si usas el sistema de Input
-        InputManager.playerInput.SwitchCurrentActionMap("UI");
-
-        Time.timeScale = 0f;
+        Time.timeScale = 0f; 
     }
 
     public void ContinuarJuego()
     {
         estaPausado = false;
         if (panelPausa != null) panelPausa.SetActive(false);
-        Time.timeScale = 1f;
-        // Vuelve al mapa de acciones del juego
-        InputManager.playerInput.SwitchCurrentActionMap("Gameplay");
+        Time.timeScale = 1f; 
     }
 
     public void IrAlMenuConEfecto()
@@ -72,15 +59,23 @@ public class PauseManager : MonoBehaviour
         if (panelPausa != null) panelPausa.SetActive(false);
         if (panelGameOver != null) panelGameOver.SetActive(true);
 
-        // 1. Matamos la música para siempre
-        // Usamos Destroy en lugar de Stop para que, al llegar al menú, 
-        // el objeto desaparezca y no choque con la música del menú.
-        if (musicaDeFondo != null)
-        {
-            Destroy(musicaDeFondo.gameObject); 
-        }
+        // --- CORRECCIÓN CLAVE AQUÍ ---
+        // Buscamos la música JUSTO AHORA, no al inicio.
+        // Buscamos el objeto que tenga el script MusicaContinua.
+        MusicaContinua musicaSonando = FindAnyObjectByType<MusicaContinua>();
 
-        // 2. Sonido de derrota
+        if (musicaSonando != null)
+        {
+            Debug.Log("Música encontrada y destruida: " + musicaSonando.name);
+            Destroy(musicaSonando.gameObject); 
+        }
+        else
+        {
+            Debug.LogWarning("No encontré ninguna música con el script MusicaContinua para destruir.");
+        }
+        // -----------------------------
+
+        // Reproducimos Game Over
         if (sourceEfectos != null && clipGameOver != null)
         {
             sourceEfectos.PlayOneShot(clipGameOver);
